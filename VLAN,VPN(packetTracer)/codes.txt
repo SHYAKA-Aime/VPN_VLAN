@@ -1,0 +1,45 @@
+en
+conf-t
+hostname flloor_1(then ''')
+
+(inn every switch)
+vlan 10
+name executive 
+exit
+vlan 11
+name management
+exit
+vlan 12
+name officers
+exit
+
+
+
+(for cables connecting laptops)
+int f0/3
+switchport mode access
+switchport access vlan 12
+exit
+int f0/4
+switchport mode access
+switchport access vlan 10
+exit
+int f0/5
+switchport mode access
+switchport access vlan 11
+exit
+
+
+
+
+
+
+(for cables connecting switches)
+int f0/1
+switch mode trunk
+switch neggotiate
+exit
+int f0/2
+switch mode trunk
+switch neggotiate
+exit
